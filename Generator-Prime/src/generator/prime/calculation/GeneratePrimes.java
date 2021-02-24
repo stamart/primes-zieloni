@@ -8,13 +8,11 @@ public class GeneratePrimes {
 
     public GeneratePrimes() {}
 
-    public List<String> findPrimes(long target){
-        List<String> primes = new ArrayList<>();
+    public List<Integer> findPrimes(long target){
+        List<Integer> primes = new ArrayList<>();
         for (int i=2;i<=target;i++){
             if (isPrime(i)){
-                primes.add(i+"*");
-            } else {
-                primes.add(i+"");
+                primes.add(i);
             }
         }
         return primes;
