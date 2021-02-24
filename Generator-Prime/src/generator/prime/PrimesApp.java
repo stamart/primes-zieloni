@@ -8,7 +8,9 @@ public class PrimesApp {
 
 
     public static void main(String[] args) {
-        List<Integer> primes = GeneratePrimes.find_primes();
+        GeneratePrimes generatePrimes = new GeneratePrimes();
+        List<String> primes = generatePrimes.findPrimes(100);
+
         ShowPrimes.show_primes(primes);
     }
     
