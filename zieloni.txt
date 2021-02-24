@@ -1,0 +1,7 @@
+Kryteria oceny:
+- jakość kodu : 3
+- brak błędów : 3
+- poprawne gałęzie : 3 
+- praca zespołowa w Git : 3
+
+suma 12 punktów
