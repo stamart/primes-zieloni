@@ -32,7 +32,7 @@ public class ShowPrimes {
      * @param primeMarker         Znacznik liczby pierwszej
      * @param showSummary         Czy wyświetlać podsumowanie
      */
-    static void show_primes_in_columns(List<Integer> primes, int maxNumberToGenerate, int numberOfColumns, char numberSeparator, char primeMarker, boolean showSummary) {
+    public static void show_primes_in_columns(List<Integer> primes, int maxNumberToGenerate, int numberOfColumns, char numberSeparator, char primeMarker, boolean showSummary) {
         String primesOutput = "";
         int numberOfPrimes = primes.size();
         int cellLength = Integer.toString(maxNumberToGenerate).length() + 1; // dodatkowy znak na ewentualny znacznik liczby pierwszej
@@ -40,10 +40,10 @@ public class ShowPrimes {
         int prime = primes.get(0);
         int[] summary = new int[numberOfColumns + 1]; // dla łatwiejszego wypisywania, pomijamy komórkę o indexie = 0
 
+        // wypisujemy wszystkie liczby od 1 do maxNumberToGenerate w kolumnach z oznaczaniem liczb pierwszych
         for (int numberIterator = 1; numberIterator <= maxNumberToGenerate; numberIterator++) {
             primesOutput += String.format("%" + cellLength + "d", numberIterator); // wypisujemy liczbę razem z poprzedzającymi spacjami
             if (prime == numberIterator) {
-                //if(primes.get(primesIterator) == numberIterator){
                 primesOutput += primeMarker; // oznaczamy liczbę pierwszą
                 /*
                  * Zliczamy liczby pierwsze w kolumnie
@@ -60,11 +60,14 @@ public class ShowPrimes {
             } else {
                 primesOutput += numberSeparator;
             }
+            //przechodzimy do nowego wiersza, jeśli wypisaliśmy zadaną liczbę kolumn
             if (numberIterator % numberOfColumns == 0) {
                 primesOutput += System.lineSeparator();
             }
         }
+        // dodajemy podsumowanie, jeśli takie było życzenie
         if (showSummary == true) {
+            // linia oddzielająca
             primesOutput += String.format("%0" + numberOfColumns * (cellLength + 1) + "d", 0).replace("0", "-") + System.lineSeparator();
             for (int i = 1; i <= numberOfColumns; i++) {
                 primesOutput += String.format("%" + cellLength + "d", summary[i]) + numberSeparator;
