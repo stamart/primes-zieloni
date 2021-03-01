@@ -68,7 +68,7 @@ public class ShowPrimes {
         // dodajemy podsumowanie, jeśli takie było życzenie
         if (showSummary == true) {
             // linia oddzielająca
-            primesOutput += String.format("%0" + numberOfColumns * (cellLength + 1) + "d", 0).replace("0", "-") + System.lineSeparator();
+            primesOutput += String.format("%0" + numberOfColumns * (cellLength + 1) + "d", 0).replace("0", "─") + System.lineSeparator();
             for (int i = 1; i <= numberOfColumns; i++) {
                 primesOutput += String.format("%" + cellLength + "d", summary[i]) + numberSeparator;
             }
