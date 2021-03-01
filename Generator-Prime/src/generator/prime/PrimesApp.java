@@ -12,6 +12,7 @@ public class PrimesApp {
         List<Integer> primes = generatePrimes.findPrimes(120);
 
         ShowPrimes.show_primes(primes);
+        ShowPrimes.show_primes(primes);
     }
     
 }
