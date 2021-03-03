@@ -2,6 +2,7 @@ package generator.prime.show;
 
 import java.util.List;
 
+
 /**
  * Klasa odpowiada za wypisywanie liczb pierwszych
  *
@@ -33,6 +34,7 @@ public class ShowPrimes {
      * @param showSummary         Czy wyświetlać podsumowanie
      */
     public static void show_primes_in_columns(List<Integer> primes, int maxNumberToGenerate, int numberOfColumns, char numberSeparator, char primeMarker, boolean showSummary) {
+        int team = 2;
         String primesOutput = "";
         int numberOfPrimes = primes.size();
         int cellLength = Integer.toString(maxNumberToGenerate).length() + 1; // dodatkowy znak na ewentualny znacznik liczby pierwszej
@@ -42,22 +44,27 @@ public class ShowPrimes {
 
         // wypisujemy wszystkie liczby od 1 do maxNumberToGenerate w kolumnach z oznaczaniem liczb pierwszych
         for (int numberIterator = 1; numberIterator <= maxNumberToGenerate; numberIterator++) {
-            primesOutput += String.format("%" + cellLength + "d", numberIterator); // wypisujemy liczbę razem z poprzedzającymi spacjami
             if (prime == numberIterator) {
-                primesOutput += primeMarker; // oznaczamy liczbę pierwszą
-                /*
-                 * Zliczamy liczby pierwsze w kolumnie
-                 * Wynik zapisujemy do tabeli podsumowania, wyliczając kolumnę przez obliczenie reszty z dzielenia
-                 * danej liczby przez liczbę kolumn.
-                 * Jeśli trafimy na ostatnią kolumnę, to wynik zapisujemy w ostatniej komórce tabeli,
-                 * a nie w pierwszej (o indexie = 0)
-                 */
-                summary[(numberIterator % numberOfColumns) > 0 ? (numberIterator % numberOfColumns) : numberOfColumns]++;
+                if (!GeneratePrimes.isCursedPrime(team, numberIterator)) {
+                    primesOutput += String.format("%" + cellLength + "d", numberIterator); // wypisujemy liczbę razem z poprzedzającymi spacjami
+                    primesOutput += primeMarker; // oznaczamy liczbę pierwszą
+                    /*
+                     * Zliczamy liczby pierwsze w kolumnie
+                     * Wynik zapisujemy do tabeli podsumowania, wyliczając kolumnę przez obliczenie reszty z dzielenia
+                     * danej liczby przez liczbę kolumn.
+                     * Jeśli trafimy na ostatnią kolumnę, to wynik zapisujemy w ostatniej komórce tabeli,
+                     * a nie w pierwszej (o indexie = 0)
+                     */
+                    summary[(numberIterator % numberOfColumns) > 0 ? (numberIterator % numberOfColumns) : numberOfColumns]++;
+                } else {
+                    primesOutput += String.format("%" + cellLength + "d", "") + numberSeparator;
+                }
                 if (primesIterator < (numberOfPrimes - 1)) {
                     primesIterator++;
                     prime = primes.get(primesIterator);
                 }
             } else {
+                primesOutput += String.format("%" + cellLength + "d", numberIterator); // wypisujemy liczbę razem z poprzedzającymi spacjami
                 primesOutput += numberSeparator;
             }
             //przechodzimy do nowego wiersza, jeśli wypisaliśmy zadaną liczbę kolumn
