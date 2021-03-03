@@ -1,5 +1,6 @@
 package generator.prime.show;
 
+import generator.prime.calculation.GeneratePrimes;
 import java.util.List;
 
 
@@ -57,7 +58,7 @@ public class ShowPrimes {
                      */
                     summary[(numberIterator % numberOfColumns) > 0 ? (numberIterator % numberOfColumns) : numberOfColumns]++;
                 } else {
-                    primesOutput += String.format("%" + cellLength + "d", "") + numberSeparator;
+                    primesOutput += String.format("%" + cellLength + "d", " ") + numberSeparator;
                 }
                 if (primesIterator < (numberOfPrimes - 1)) {
                     primesIterator++;
