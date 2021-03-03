@@ -58,7 +58,7 @@ public class ShowPrimes {
                      */
                     summary[(numberIterator % numberOfColumns) > 0 ? (numberIterator % numberOfColumns) : numberOfColumns]++;
                 } else {
-                    primesOutput += String.format("%" + cellLength + "d", " ") + numberSeparator;
+                    primesOutput += String.format("%0" + cellLength + "d", 0).replace("0"," ") + numberSeparator;
                 }
                 if (primesIterator < (numberOfPrimes - 1)) {
                     primesIterator++;
