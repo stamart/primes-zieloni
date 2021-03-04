@@ -40,7 +40,7 @@ public class GeneratePrimes {
         return true;
     }
 
-    public static List<Integer> sieveOfEratosthenes(int n) {
+    public static List<Integer> findPrimesFast(int n) {
         boolean prime[] = new boolean[n + 1];
         Arrays.fill(prime, true);
         for (int p = 2; p * p <= n; p++) {
