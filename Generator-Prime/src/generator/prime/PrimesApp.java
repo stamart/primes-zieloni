@@ -12,7 +12,7 @@ public class PrimesApp {
         
         GeneratePrimes generatePrimes = new GeneratePrimes();
               
-        List<Integer> primes = generatePrimes.findPrimes(2*3*5*7*11*13*17*19);
+        List<Integer> primes = generatePrimes.sieveOfEratosthenes(2*3*5*7*11*13*17*19);
         long end = System.currentTimeMillis();
 
         System.out.println((end - start) / 1000.0);
