@@ -1,4 +1,3 @@
-
 package generator.prime.calculation;
 
 import java.util.ArrayList;
@@ -6,7 +5,8 @@ import java.util.List;
 
 public class GeneratePrimes {
 
-    public GeneratePrimes() {}
+    public GeneratePrimes() {
+    }
 
     public List<Integer> findPrimes(long target) {
         List<Integer> primes = new ArrayList<>();
